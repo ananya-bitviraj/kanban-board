@@ -1,7 +1,6 @@
 import React from 'react';
 import GroupColumn from './GroupColumn';
 import TicketCard from './TicketCard';
-import icon1 from "../../assets/Display.svg";
 
 // status icons according to category
 const statusIcons = {
@@ -15,7 +14,7 @@ const statusIcons = {
 // priority icons and title according to category
 const priorityTitle = {
   "0" : {
-    icons: {icon1},
+    icons: `${process.env.PUBLIC_URL}/icons/No-priority.svg`,
     title: "No Priority",
   },
   "1" : {
