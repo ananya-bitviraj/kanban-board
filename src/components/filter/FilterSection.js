@@ -14,7 +14,7 @@ const FilterSection = ({ setGrouping, setSortOption, grouping, sortOption }) => 
   return (
     <div className="filter-section">
       <button className="display-button" onClick={toggleDropdown}>
-       <img src='/icons/Display.svg' alt='filter-logo' /> Display <img src='/icons/down.svg' alt='down-arrow' />
+       <img src={`${process.env.PUBLIC_URL}/icons/Display.svg`} alt='filter-logo' /> Display <img src={`${process.env.PUBLIC_URL}/icons/down.svg`} alt='down-arrow' />
       </button>
       {dropdownVisible && (
         <DropdownMenu closeDropdown={() => setDropdownVisible(false)}>

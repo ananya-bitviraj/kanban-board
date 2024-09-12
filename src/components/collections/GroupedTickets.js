@@ -4,33 +4,33 @@ import TicketCard from './TicketCard';
 
 // status icons according to category
 const statusIcons = {
-  "Todo": "/icons/To-do.svg",
-  "Backlog": "/icons/Backlog.svg",
-  "In progress": "/icons/in-progress.svg",
-  "Done": "/icons/Done.svg",
-  "Canceled": "/icons/Cancelled.svg"
+  "Todo": `${process.env.PUBLIC_URL}/icons/To-do.svg`,
+  "Backlog": `${process.env.PUBLIC_URL}/icons/Backlog.svg`,
+  "In progress": `${process.env.PUBLIC_URL}/icons/in-progress.svg`,
+  "Done": `${process.env.PUBLIC_URL}/icons/Done.svg`,
+  "Canceled": `${process.env.PUBLIC_URL}/icons/Cancelled.svg`
 };
 
 // priority icons and title according to category
 const priorityTitle = {
   "0" : {
-    icons: "/icons/No-priority.svg",
+    icons: `${process.env.PUBLIC_URL}/icons/No-priority.svg`,
     title: "No Priority",
   },
   "1" : {
-    icons: "/icons/Low.svg",
+    icons: `${process.env.PUBLIC_URL}/icons/Low.svg`,
     title: "Low",
   },
   "2" : {
-    icons: "/icons/Medium.svg",
+    icons: `${process.env.PUBLIC_URL}/icons/Medium.svg`,
     title: "Medium",
   },
   "3" : {
-    icons: "/icons/High.svg",
+    icons: `${process.env.PUBLIC_URL}/icons/High.svg`,
     title: "High",
   },
   "4" : {
-    icons: "/icons/Urgent.svg",
+    icons: `${process.env.PUBLIC_URL}/icons/Urgent.svg`,
     title: "Urgent",
   },
 }
@@ -40,7 +40,7 @@ const allStatuses = ["Todo", "Backlog", "In progress", "Done", "Canceled"];
 
 // Helper function to get the user's avatar from the public folder
 const getUserAvatar = (userId) => {
-  return `/images/users/${userId}.jpg`; 
+  return `${process.env.PUBLIC_URL}/images/users/${userId}.jpg`; 
 };
 
 // Component to render the grouped tickets
@@ -117,12 +117,12 @@ const GroupedTickets = ({ tickets, users, grouping, sortOption }) => {
               grouping === 'status' ? (   // for status categoty (icon + title)
                 <div className='title-container'>
                   <div className='group-title'>
-                  <img src={groupData.avatar} alt={`${group} avatar`} className="user-avatar-header" />
+                  <img src={statusIcons[group]} alt={`${group} avatar`} className="user-avatar-header" />
                     {group} <span className='count'>{groupData.length} </span>
                   </div>
                   <div className='title-menu-icons'>
-                    <img src='/icons/add.svg' alt='add-icon' />
-                    <img src='/icons/3dot.svg' alt='dot-icon' />
+                    <img src={`${process.env.PUBLIC_URL}/icons/add.svg`} alt='add-icon' />
+                    <img src={`${process.env.PUBLIC_URL}/icons/3dot.svg`} alt='dot-icon' />
                   </div>
                 </div>
               ) : grouping === 'user' ? ( // for user categoty  (profile pic + title)
@@ -132,8 +132,8 @@ const GroupedTickets = ({ tickets, users, grouping, sortOption }) => {
                   {group} <span className='count'> {groupData.tickets.length} </span>
                 </div>
                 <div className='title-menu-icons'>
-                    <img src='/icons/add.svg' alt='add-icon' />
-                    <img src='/icons/3dot.svg' alt='dot-icon' />
+                <img src={`${process.env.PUBLIC_URL}/icons/add.svg`} alt='add-icon' />
+                <img src={`${process.env.PUBLIC_URL}/icons/3dot.svg`} alt='dot-icon' />
                   </div>
                 </div>
               ) : (              // for priority category   (icon + title according to the number of priority)
@@ -143,8 +143,8 @@ const GroupedTickets = ({ tickets, users, grouping, sortOption }) => {
                     {priorityTitle[group].title} <span className='count'>{groupData.length} </span>
                   </div>
                   <div className='title-menu-icons'>
-                    <img src='/icons/add.svg' alt='add-icon' />
-                    <img src='/icons/3dot.svg' alt='dot-icon' />
+                  <img src={`${process.env.PUBLIC_URL}/icons/add.svg`} alt='add-icon' />
+                  <img src={`${process.env.PUBLIC_URL}/icons/3dot.svg`} alt='dot-icon' />
                   </div>
                 </div>
               )
